@@ -1,0 +1,91 @@
+body {
+    background: black;
+    font-family: 'Roboto', sans-serif;
+    min-width: 950px;
+}
+
+.title {
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.playerDiv {
+    background-color: #4B4B4B;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 0px 100px 0 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.rock, .paper, .scissors {
+    margin: 10px;
+    max-width: 225px;
+    height: 225px;
+}
+
+.playerTitle {
+    color: white;
+}
+
+img {
+    max-width: 200px;
+}
+
+.RoundCounter {
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+}
+
+.popup {
+    width: 400px;
+    background: #4B4B4B;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    left: -25%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: black;
+    transition: left 0.4s;
+}
+
+.popup img {
+    width: 100px;
+    margin-top: 50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.popup h2{
+    font-size: 35px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popupButton {
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: black;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.open-popup {
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close-popup {
+    left: 125%;
+}
