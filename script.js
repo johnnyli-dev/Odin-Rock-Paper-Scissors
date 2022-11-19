@@ -48,15 +48,19 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function checkWin() {
-    if(playerWins > 4 && playerWins - computerWins == 2) {
+    if(playerWins > 4 && playerWins - computerWins >= 2) {
         rock.disabled = true;
         paper.disabled = true;
         scissors.disabled = true;
+        returnText.innerHTML = "Player has Won!";
+        playAgain.style.visibility = "visible";
     }
-    if(computerWins > 4 && computerWins - playerWins == 2) {
+    if(computerWins > 4 && computerWins - playerWins >= 2) {
         rock.disabled = true;
         paper.disabled = true;
         scissors.disabled = true;
+        returnText.innerHTML = "Computer has Won!";
+        playAgain.style.visibility = "visible";
     }
 }
 
@@ -77,6 +81,8 @@ const popUp = document.querySelector(".popup");
 const popUpButton = document.querySelector(".popupButton");
 const playerScore = document.querySelector(".playerScore");
 const computerScore = document.querySelector(".computerScore");
+const returnText = document.querySelector(".returnText");
+const playAgain = document.querySelector(".playAgainB")
 let returnStatement = "";
 
 
@@ -85,6 +91,7 @@ rock.addEventListener("click", function() {
     roundDisplay.innerHTML = "Round: " + roundCounter;
     playerScore.innerHTML = playerWins;
     computerScore.innerHTML = computerWins;
+    returnText.innerHTML = returnStatement;
     checkWin();
 });
 paper.addEventListener("click", function() {
@@ -92,6 +99,7 @@ paper.addEventListener("click", function() {
     roundDisplay.innerHTML = "Round: " + roundCounter;
     playerScore.innerHTML = playerWins;
     computerScore.innerHTML = computerWins;
+    returnText.innerHTML = returnStatement;
     checkWin();
 });
 scissors.addEventListener("click", function() {
@@ -99,6 +107,7 @@ scissors.addEventListener("click", function() {
     roundDisplay.innerHTML = "Round: " + roundCounter;
     playerScore.innerHTML = playerWins;
     computerScore.innerHTML = computerWins;
+    returnText.innerHTML = returnStatement;
     checkWin();
 });
 
@@ -120,3 +129,17 @@ function closePopup() {
 popUpButton.addEventListener('click', closePopup);
 openPopup();
 console.log("pop");
+
+playAgain.addEventListener("click", function() {
+    roundCounter = 0;
+    playerWins = 0;
+    computerWins = 0;
+    roundDisplay.innerHTML = "Round: " + roundCounter;
+    playerScore.innerHTML = playerWins;
+    computerScore.innerHTML = computerWins;
+    returnText.innerHTML = "Choose a Button To Start";
+    rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
+    playAgain.style.visibility = "hidden";
+});
