@@ -1,7 +1,6 @@
 body {
     background: black;
     font-family: 'Roboto', sans-serif;
-    min-width: 950px;
 }
 
 .title {
@@ -25,10 +24,6 @@ body {
     margin: 10px;
     max-width: 225px;
     height: 225px;
-}
-
-.playerTitle {
-    color: white;
 }
 
 img {
@@ -88,4 +83,26 @@ img {
 
 .close-popup {
     left: 125%;
+}
+
+.scoreCard {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 100px;
+}
+
+.playerScore, .computerScore {
+    font-family: "lobster", cursive;
+}
+
+.player {
+    color: green;
+}
+
+.computer {
+    color: red;
 }

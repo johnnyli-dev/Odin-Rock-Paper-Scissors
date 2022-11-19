@@ -47,6 +47,18 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function checkWin() {
+    if(playerWins > 4 && playerWins - computerWins == 2) {
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
+    }
+    if(computerWins > 4 && computerWins - playerWins == 2) {
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
+    }
+}
 
 
 
@@ -54,21 +66,40 @@ function playRound(playerSelection, computerSelection) {
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
+const playerTotal = document.querySelector(".player");
+const computerTotal = document.querySelector(".computer");
+rock.disabled = true;
+paper.disabled = true;
+scissors.disabled = true;
+
 const roundDisplay = document.querySelector(".RoundCounter");
 const popUp = document.querySelector(".popup");
 const popUpButton = document.querySelector(".popupButton");
+const playerScore = document.querySelector(".playerScore");
+const computerScore = document.querySelector(".computerScore");
+let returnStatement = "";
+
 
 rock.addEventListener("click", function() {
-    console.log(playRound('rock', getComputerChoice()));
+    returnStatement = playRound('rock', getComputerChoice());
     roundDisplay.innerHTML = "Round: " + roundCounter;
+    playerScore.innerHTML = playerWins;
+    computerScore.innerHTML = computerWins;
+    checkWin();
 });
 paper.addEventListener("click", function() {
-    console.log(playRound('paper', getComputerChoice()));
+    returnStatement = playRound('paper', getComputerChoice());
     roundDisplay.innerHTML = "Round: " + roundCounter;
+    playerScore.innerHTML = playerWins;
+    computerScore.innerHTML = computerWins;
+    checkWin();
 });
 scissors.addEventListener("click", function() {
-    console.log(playRound('scissors', getComputerChoice()));
+    returnStatement = playRound('scissors', getComputerChoice());
     roundDisplay.innerHTML = "Round: " + roundCounter;
+    playerScore.innerHTML = playerWins;
+    computerScore.innerHTML = computerWins;
+    checkWin();
 });
 
 
@@ -80,6 +111,9 @@ function openPopup() {
 function closePopup() {
     popUp.classList.remove("open-popup");
     popUp.classList.add("close-popup");
+    rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
 }
 
 
